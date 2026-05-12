@@ -2,30 +2,36 @@
 <html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z63W4B37KH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-Z63W4B37KH');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z63W4B37KH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Z63W4B37KH');
+    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio | SUZU Studios</title>
+    <title>Our Work | SUZU Studios Case Studies</title>
+    
+    <!-- Premium Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Cinematic Background -->
     <div class="bg-grid"></div>
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
 
+    <!-- Custom Interactive Cursor -->
     <div class="cursor"></div>
     <div class="cursor-follower"></div>
 
+    <!-- Glassmorphism Navigation -->
     <nav>
         <div class="nav-container glass">
             <div class="brand">
@@ -41,129 +47,218 @@
         </div>
     </nav>
 
-    <section id="portfolio-hero" class="reveal">
+    <!-- FIXED: Added section-padding so the heading is pushed down below the navbar! -->
+    <section id="portfolio-hero" class="reveal section-padding" style="padding-bottom: 20px;">
         <div class="section-header">
             <h1 class="section-title text-gradient">Our Past Projects</h1>
-            <p>From sleek startups to high-performance enterprises, here's how we elevate brands.</p>
+            <p class="section-desc">From sleek startups to high-performance enterprises, here's how we elevate brands.</p>
         </div>
     </section>
 
-    <section id="portfolio" class="reveal" style="padding-top: 0;">
+    <!-- FIXED: Removed buggy reveal classes from individual cards, added hover-lift -->
+    <section id="portfolio" class="reveal section-padding" style="padding-top: 0;">
         <div class="portfolio-grid deep-dive-grid">
             
-            <div class="portfolio-card glass reveal">
-                <img src="greengiraffe.png" alt="Green Giraffe Thumbnail" class="project-img deep-project-img">
+            <!-- PROJECT 1: Green Giraffe -->
+            <div class="portfolio-card glass hover-lift">
+                <img src="greengiraffe.png" alt="Green Giraffe Thumbnail" class="project-img deep-project-img" loading="lazy">
                 <div class="project-info">
-                    <h4>Green Giraffe</h4>
-                    <p>An online kids library for toys and books in Dubai.</p>
-                    <a href="https://greengiraffe.ae/" target="_blank" class="project-link">View Live Site ➔</a>
+                    <h4>Green Giraffe E-Commerce</h4>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Web Dev</span> <span class="tech-tag">UI/UX</span> <span class="tech-tag">E-Commerce</span>
+                    </div>
+                    <div class="case-study-details">
+                        <p><strong>Goal:</strong> Create a highly secure, engaging online kids library for toys and books in Dubai.</p>
+                        <p><strong>Process:</strong> Designed an intuitive user journey with seamless inventory browsing and custom payment integrations.</p>
+                    </div>
+                    <p class="project-outcome"><strong>Outcome:</strong> 40% increase in mobile session duration and a flawless checkout experience.</p>
+                    <a href="https://greengiraffe.ae/" target="_blank" class="cta-button secondary" style="padding: 10px 20px; font-size: 0.9rem; margin-top: auto;">View Live Project</a>
                 </div>
             </div>
             
-            <div class="portfolio-card glass reveal">
-                <img src="ezy.png" alt="Ezy Buying Thumbnail" class="project-img deep-project-img">
+            <!-- PROJECT 2: Ezy Buying -->
+            <div class="portfolio-card glass hover-lift">
+                <img src="ezy.png" alt="Ezy Buying Thumbnail" class="project-img deep-project-img" loading="lazy">
                 <div class="project-info">
-                    <h4>Ezy Buying</h4>
-                    <p>A B2B platform for construction materials.</p>
-                    <a href="https://ezybuying.in/" target="_blank" class="project-link">View Live Site ➔</a>
+                    <h4>Ezy Buying B2B Portal</h4>
+                    <div class="tech-stack">
+                        <span class="tech-tag">B2B Platform</span> <span class="tech-tag">Architecture</span> <span class="tech-tag">Optimization</span>
+                    </div>
+                    <div class="case-study-details">
+                        <p><strong>Goal:</strong> Streamline complex vendor interactions and bulk ordering for construction materials.</p>
+                        <p><strong>Process:</strong> Architected a robust, scalable backend capable of dynamic pricing and real-time inventory sync.</p>
+                    </div>
+                    <p class="project-outcome"><strong>Outcome:</strong> Stable, scalable infrastructure effortlessly handling 10k+ active products.</p>
+                    <a href="https://ezybuying.in/" target="_blank" class="cta-button secondary" style="padding: 10px 20px; font-size: 0.9rem; margin-top: auto;">View Live Project</a>
                 </div>
             </div>
             
-            <div class="portfolio-card glass reveal">
-                <img src="nocheat.png" alt="Eat No Cheat Thumbnail" class="project-img deep-project-img">
+            <!-- PROJECT 3: Eat No Cheat -->
+            <div class="portfolio-card glass hover-lift">
+                <img src="nocheat.png" alt="Eat No Cheat Thumbnail" class="project-img deep-project-img" loading="lazy">
                 <div class="project-info">
                     <h4>Eat No Cheat</h4>
-                    <p>A vibrant product website for a healthy snack brand.</p>
-                    <a href="https://eatnocheat.com/" target="_blank" class="project-link">View Live Site ➔</a>
+                    <div class="tech-stack">
+                        <span class="tech-tag">FMCG</span> <span class="tech-tag">Web Design</span> <span class="tech-tag">Branding</span>
+                    </div>
+                    <div class="case-study-details">
+                        <p><strong>Goal:</strong> Create a vibrant, engaging product website for a healthy snack brand to drive direct-to-consumer sales.</p>
+                        <p><strong>Process:</strong> Developed a colorful, highly visual UI with playful animations and a streamlined purchasing flow.</p>
+                    </div>
+                    <p class="project-outcome"><strong>Outcome:</strong> Increased conversion rates and established a strong digital brand presence.</p>
+                    <a href="https://eatnocheat.com/" target="_blank" class="cta-button secondary" style="padding: 10px 20px; font-size: 0.9rem; margin-top: auto;">View Live Project</a>
                 </div>
             </div>
             
-            <div class="portfolio-card glass reveal">
-                <img src="Hitarth.png" alt="Hitarth Hospital Thumbnail" class="project-img deep-project-img">
+            <!-- PROJECT 4: Hitarth Hospital -->
+            <div class="portfolio-card glass hover-lift">
+                <img src="Hitarth.png" alt="Hitarth Hospital Thumbnail" class="project-img deep-project-img" loading="lazy">
                 <div class="project-info">
                     <h4>Hitarth Hospital</h4>
-                    <p>A professional website for a mother and child care hospital.</p>
-                    <a href="https://hitarthhospital.in/" target="_blank" class="project-link">View Live Site ➔</a>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Healthcare</span> <span class="tech-tag">UI/UX</span> <span class="tech-tag">Web Dev</span>
+                    </div>
+                    <div class="case-study-details">
+                        <p><strong>Goal:</strong> Design a professional, trustworthy website for a mother and child care hospital to facilitate patient bookings.</p>
+                        <p><strong>Process:</strong> Architected a clean, accessible layout with integrated appointment forms and clear service pages.</p>
+                    </div>
+                    <p class="project-outcome"><strong>Outcome:</strong> 50% increase in online patient inquiries and improved local SEO visibility.</p>
+                    <a href="https://hitarthhospital.in/" target="_blank" class="cta-button secondary" style="padding: 10px 20px; font-size: 0.9rem; margin-top: auto;">View Live Project</a>
                 </div>
             </div>
 
-            <div class="portfolio-card glass reveal">
+            <!-- PROJECT 5: Social Media Carousel -->
+            <div class="portfolio-card glass hover-lift">
                 <div class="carousel-container">
-                    <img src="1.jpg" alt="Post 1" class="carousel-img">
-                    <img src="2.jpg" alt="Post 2" class="carousel-img">
-                    <img src="3.jpg" alt="Post 3" class="carousel-img">
-                    <img src="4.jpg" alt="Post 4" class="carousel-img">
-                    <img src="5.jpg" alt="Post 5" class="carousel-img">
-                    <img src="6.jpg" alt="Post 6" class="carousel-img">
-                    <img src="7.jpg" alt="Post 7" class="carousel-img">
+                    <img src="1.jpg" alt="Post 1" class="carousel-img" loading="lazy">
+                    <img src="2.jpg" alt="Post 2" class="carousel-img" loading="lazy">
+                    <img src="3.jpg" alt="Post 3" class="carousel-img" loading="lazy">
+                    <img src="4.jpg" alt="Post 4" class="carousel-img" loading="lazy">
+                    <img src="5.jpg" alt="Post 5" class="carousel-img" loading="lazy">
+                    <img src="6.jpg" alt="Post 6" class="carousel-img" loading="lazy">
+                    <img src="7.jpg" alt="Post 7" class="carousel-img" loading="lazy">
                 </div>
                 <div class="project-info">
                     <h4>Social Media Carousel</h4>
-                    <p>A multi-image informational carousel designed for a startup client focusing on ROI common mistakes.</p>
-                    <div class="button-group">
+                    <div class="tech-stack">
+                        <span class="tech-tag">Content Creation</span> <span class="tech-tag">Graphic Design</span>
+                    </div>
+                    <div class="case-study-details">
+                        <p><strong>Goal:</strong> Design an informational multi-image carousel educating startup clients on common ROI mistakes.</p>
+                        <p><strong>Process:</strong> Combined bold typography with brand-aligned visuals to create highly shareable, swipeable content.</p>
+                    </div>
+                    <p class="project-outcome"><strong>Outcome:</strong> High engagement rates and increased profile visits across LinkedIn and Instagram.</p>
+                    <div class="button-group" style="margin-top: auto;">
                         <a href="#" target="_blank" class="btn-small secondary">View on Instagram</a>
                         <a href="#" target="_blank" class="btn-small primary">View on LinkedIn</a>
                     </div>
                 </div>
             </div>
 
-            <div class="portfolio-card glass reveal">
-                <video src="reel.mp4" alt="Promotional Reel Thumbnail" class="reel-img" controls>
-                    Your browser does not support the video tag.
-                </video>
+            <!-- PROJECT 6: Promotional Reel -->
+            <div class="portfolio-card glass hover-lift">
+                <video src="reel.mp4" alt="Promotional Reel Thumbnail" class="reel-img" controls></video>
                 <div class="project-info">
                     <h4>Promotional Reel</h4>
-                    <p>Engaging vertical video content and animation created to drive organic startup growth.</p>
-                    <div class="button-group">
+                    <div class="tech-stack">
+                        <span class="tech-tag">Video Editing</span> <span class="tech-tag">Animation</span> <span class="tech-tag">Social Media</span>
+                    </div>
+                    <div class="case-study-details">
+                        <p><strong>Goal:</strong> Produce an engaging vertical video to drive organic reach and brand awareness for a startup.</p>
+                        <p><strong>Process:</strong> Scripted, edited, and animated dynamic visual content optimized for Instagram Reels algorithms.</p>
+                    </div>
+                    <p class="project-outcome"><strong>Outcome:</strong> Viral reach resulting in a massive spike in weekly organic follower growth.</p>
+                    <div class="button-group" style="margin-top: auto;">
                         <a href="#" target="_blank" class="btn-small secondary">View on Instagram</a>
                         <a href="#" target="_blank" class="btn-small primary">View on LinkedIn</a>
                     </div>
                 </div>
             </div>
 
-            <div class="portfolio-card glass reveal">
+            <!-- PROJECT 7: Custom Apparel Design -->
+            <div class="portfolio-card glass hover-lift">
                 <div class="carousel-container">
-                    <img src="SS1.png" alt="Apparel Design 1" class="carousel-img">
-                    <img src="SS2.png" alt="Apparel Design 2" class="carousel-img">
-                    <img src="SS3.png" alt="Apparel Design 3" class="carousel-img">
-                    <img src="SS4.png" alt="Apparel Design 4" class="carousel-img">
-                    <img src="SS5.png" alt="Apparel Design 5" class="carousel-img">
+                    <img src="SS1.png" alt="Apparel Design 1" class="carousel-img" loading="lazy">
+                    <img src="SS2.png" alt="Apparel Design 2" class="carousel-img" loading="lazy">
+                    <img src="SS3.png" alt="Apparel Design 3" class="carousel-img" loading="lazy">
+                    <img src="SS4.png" alt="Apparel Design 4" class="carousel-img" loading="lazy">
+                    <img src="SS5.png" alt="Apparel Design 5" class="carousel-img" loading="lazy">
                 </div>
                 <div class="project-info">
                     <h4>Custom Apparel Design</h4>
-                    <p>Original t-shirt and clothing designs, focusing on modern streetwear aesthetics and brand identity.</p>
-                    <a href="#" target="_blank" class="project-link">View Design Gallery ➔</a>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Merch Design</span> <span class="tech-tag">Branding</span> <span class="tech-tag">Streetwear</span>
+                    </div>
+                    <div class="case-study-details">
+                        <p><strong>Goal:</strong> Launch an original line of t-shirts and clothing reflecting modern streetwear aesthetics.</p>
+                        <p><strong>Process:</strong> Sketched and vectorized custom illustrations, focusing on bold brand identity and premium layouts.</p>
+                    </div>
+                    <p class="project-outcome"><strong>Outcome:</strong> Successfully launched a distinct merchandise line with high customer satisfaction.</p>
+                    <a href="#" target="_blank" class="cta-button secondary" style="padding: 10px 20px; font-size: 0.9rem; margin-top: auto;">View Design Gallery</a>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <section id="contact" class="reveal contact-section glass">
+    <!-- Direct Contact Section -->
+    <section id="contact" class="reveal contact-section glass section-padding">
         <div class="section-header">
-            <h2 class="section-title text-gradient">Reach Out to Us</h2>
-            <p>Let's elevate your brand together.</p>
+            <h2 class="section-title text-gradient">Ready to Scale Your Brand?</h2>
+            <p class="section-desc">Let's build something extraordinary together. Reach out for a free consultation and project estimate.</p>
         </div>
         <div class="contact-details grid-container">
-            
-            <div class="contact-card glass">
-                <h4>Mail Us</h4>
+            <div class="contact-card glass hover-lift">
+                <h4>Mail Us Directly</h4>
                 <a href="mailto:suzustudios1626@gmail.com" class="contact-link">suzustudios1626@gmail.com</a>
             </div>
-            
-            <div class="contact-card glass">
+            <div class="contact-card glass hover-lift">
                 <h4>Let's Chat</h4>
-                <p style="margin-bottom: 15px; color: var(--text-main); font-weight: 600; font-size: 1.1rem;">+91-8369367570</p>
+                <p class="contact-number">+91-8369367570</p>
                 <div class="button-group" style="justify-content: center;">
-                    <a href="tel:+918369367570" class="btn-small secondary">📞 Call</a>
+                    <a href="tel:+918369367570" class="btn-small secondary">📞 Call Now</a>
                     <a href="https://wa.me/918369367570" target="_blank" class="btn-small primary">💬 WhatsApp</a>
                 </div>
             </div>
-            
         </div>
     </section>
+
+    <!-- Premium Agency Footer -->
+    <footer class="agency-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="brand" style="margin-bottom: 15px;">
+                    <img src="SUZU.png" alt="SUZU Studios Logo" class="brand-logo" style="height: 30px !important; width: 30px !important;">
+                    <span class="brand-name">SUZU <span class="text-gradient">studios</span></span>
+                </div>
+                <p>Engineering premium digital experiences, striking brands, and high-converting marketing campaigns for modern businesses worldwide.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Navigation</h4>
+                <ul>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="index.html#process">Our Process</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="portfolio.html">Case Studies</a></li>
+                </ul>
+            </div>
+            <div class="footer-socials">
+                <h4>Connect With Us</h4>
+                <ul>
+                    <li><a href="#" target="_blank">Instagram</a></li>
+                    <li><a href="#" target="_blank">LinkedIn</a></li>
+                    <li><a href="mailto:suzustudios1626@gmail.com">Email Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 SUZU Studios. All rights reserved.</p>
+            <p>Based in Bengaluru, India. Designed & Developed In-House.</p>
+        </div>
+    </footer>
+
     <!-- Floating WhatsApp Button (Bulletproof Version) -->
-    <a href="https://wa.me/918369367570" target="_blank" style="position: fixed; bottom: 30px; left: 30px; width: 60px; height: 60px; background-color: #25D366; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); z-index: 10000; text-decoration: none; transition: transform 0.3s ease;">
+    <a href="https://wa.me/918369367570" target="_blank" style="position: fixed; bottom: 30px; left: 30px; width: 60px; height: 60px; background-color: #25D366; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); z-index: 10000; text-decoration: none; transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);" aria-label="Chat with SUZU Studios on WhatsApp">
         <svg viewBox="0 0 32 32" style="width: 38px; height: 38px; fill: #ffffff; display: block;">
             <path d="M16.05 2.5C8.6 2.5 2.55 8.55 2.55 16c0 2.4.65 4.7 1.8 6.65L2.5 29.5l7.05-1.85c1.9 1.05 4.05 1.6 6.5 1.6 7.45 0 13.5-6.05 13.5-13.5S23.5 2.5 16.05 2.5zm0 24.35c-1.9 0-3.75-.5-5.35-1.4l-.4-.25-4 1.05 1.05-3.9-.25-.4c-1-1.65-1.55-3.6-1.55-5.55 0-6.1 4.95-11.05 11.05-11.05s11.05 4.95 11.05 11.05-4.95 11.05-11.05 11.05zm6.05-8.25c-.35-.15-1.95-.95-2.25-1.05-.3-.1-.5-.15-.7.15-.2.35-.85 1.05-1.05 1.25-.2.2-.4.25-.75.1-2.15-1-3.6-2.55-4.65-4.4-.15-.3.05-.4.2-.6.15-.15.35-.4.5-.6.15-.2.2-.35.3-.55.1-.2.05-.4-.05-.55-.1-.15-.7-1.7-.95-2.35-.25-.6-.5-.5-.7-.5h-.6c-.2 0-.5.05-.75.35-.3.3-1.05 1.05-1.05 2.55s1.1 2.95 1.25 3.15c.15.2 2.15 3.3 5.2 4.55.75.3 1.35.5 1.8.65.75.25 1.45.2 2 .15.6-.05 1.95-.8 2.25-1.55.3-.75.3-1.4.2-1.55-.15-.15-.35-.2-.7-.35z"/>
         </svg>

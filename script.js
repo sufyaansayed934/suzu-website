@@ -82,3 +82,44 @@ document.addEventListener('DOMContentLoaded', () => {
         blobs[1].style.transform = `translate(${-x}px, ${-y}px)`;
     });
 });
+// ==========================================
+// AUTO-SLIDING CAROUSELS
+// ==========================================
+document.addEventListener('DOMContentLoaded', () => {
+    const carousels = document.querySelectorAll('.carousel-container');
+
+    carousels.forEach(carousel => {
+        let scrollAmount = 0;
+        let slideTimer;
+
+        function autoSlide() {
+            const slideWidth = carousel.clientWidth;
+            const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+
+            // Move to the next slide
+            scrollAmount += slideWidth;
+
+            // If we've reached the end, snap back to the first image
+            if (scrollAmount > maxScroll) {
+                scrollAmount = 0;
+            }
+
+            carousel.scrollTo({
+                top: 0,
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+
+        // Slide every 3 seconds (3000 milliseconds)
+        slideTimer = setInterval(autoSlide, 3000);
+
+        // Pause the slideshow if the user hovers over it with their mouse
+        carousel.addEventListener('mouseenter', () => clearInterval(slideTimer));
+        
+        // Resume slideshow when mouse leaves
+        carousel.addEventListener('mouseleave', () => {
+            slideTimer = setInterval(autoSlide, 3000);
+        });
+    });
+});
