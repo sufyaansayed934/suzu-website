@@ -561,3 +561,81 @@ nav { position: fixed; top: 20px; width: 100%; display: flex; justify-content: c
     height: 38px;
     fill: #ffffff; /* Makes the icon white */
 }
+/* ========================================= */
+/* PREMIUM AGENCY UI UPGRADES                */
+/* ========================================= */
+
+/* Expanded 8-Card Services Grid */
+.expanded-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* About Section Enhancements */
+.about-box {
+    padding: 50px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-text {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--text-main);
+    margin-bottom: 30px;
+}
+
+.trust-badges {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.badge-item {
+    background: rgba(0, 242, 254, 0.1);
+    border: 1px solid rgba(0, 242, 254, 0.3);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: var(--cyan);
+    font-weight: 600;
+}
+
+/* Tech Stack & Outcomes inside Portfolio Cards */
+.tech-stack {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.tech-tag {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: var(--surface-color);
+    border: 1px solid var(--card-border);
+    padding: 4px 10px;
+    border-radius: 15px;
+    color: var(--text-muted);
+}
+
+.project-outcome {
+    font-size: 0.9rem;
+    color: var(--cyan);
+    margin-bottom: 20px;
+}
+
+/* Enhancing Cursor Glow specifically for Glass Cards */
+.glass:hover {
+    box-shadow: 0 10px 40px rgba(0, 242, 254, 0.05);
+}
+
+/* Better mobile hierarchy for pricing & typography */
+@media (max-width: 768px) {
+    .about-box { padding: 30px 20px; }
+    .hero-title { font-size: 2.8rem; }
+    .trust-badges { flex-direction: column; gap: 10px; }
+}
