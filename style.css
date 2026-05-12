@@ -1,0 +1,531 @@
+/* --- Core Variables --- */
+:root {
+    --bg-dark: #09090b;
+    --card-glass: rgba(255, 255, 255, 0.03);
+    --card-border: rgba(255, 255, 255, 0.08);
+    --text-main: #ffffff;
+    --text-muted: #a1a1aa;
+    --cyan: #00f2fe;
+    --blue: #4facfe;
+    --gradient: linear-gradient(135deg, var(--cyan) 0%, var(--blue) 100%);
+}
+
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: 'Outfit', sans-serif;
+    cursor: none; 
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* --- Background Effects --- */
+.bg-grid {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: -2; opacity: 0.3;
+}
+
+.blob {
+    position: fixed; border-radius: 50%; filter: blur(100px); z-index: -1;
+    animation: float 10s infinite ease-in-out alternate;
+}
+.blob-1 { width: 400px; height: 400px; background: rgba(0, 242, 254, 0.15); top: -10%; left: -10%; }
+.blob-2 { width: 500px; height: 500px; background: rgba(79, 172, 254, 0.15); bottom: -20%; right: -10%; animation-delay: -5s; }
+
+@keyframes float {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(50px, 50px) scale(1.1); }
+}
+
+/* --- Custom Cursor --- */
+.cursor { width: 8px; height: 8px; background: var(--cyan); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); }
+.cursor-follower { width: 40px; height: 40px; border: 1px solid rgba(0, 242, 254, 0.5); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); transition: width 0.3s, height 0.3s, background 0.3s; }
+
+/* --- Loading Screen --- */
+#loader { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: var(--bg-dark); display: flex; justify-content: center; align-items: center; z-index: 10000; transition: opacity 0.8s ease; }
+.spinner { width: 50px; height: 50px; border: 3px solid rgba(255,255,255,0.1); border-top-color: var(--cyan); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px; }
+.loader-text { font-size: 2rem; font-weight: 800; letter-spacing: 4px; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* --- Floating Navigation & Logo Fix --- */
+nav { position: fixed; top: 20px; width: 100%; display: flex; justify-content: center; z-index: 1000; }
+.nav-container.glass {
+    width: 90%; max-width: 1000px;
+    background: rgba(20, 20, 25, 0.6); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--card-border); border-radius: 50px;
+    display: flex; justify-content: space-between; align-items: center; padding: 10px 25px;
+}
+.brand { display: flex; align-items: center; gap: 10px; }
+
+/* Your fixed logo size */
+.brand-logo {
+    height: 40px !important;  
+    width: 40px !important;   /* Force the width to match the height for a perfect square */
+    border-radius: 50%;       /* This is the magic line that makes it a perfect circle! */
+    object-fit: cover;        /* Ensures your gradient fills the circle perfectly */
+    display: block;
+}
+
+.brand-name { font-size: 1.2rem; font-weight: 800; }
+.text-gradient { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.nav-links { list-style: none; display: flex; gap: 25px; align-items: center; }
+.nav-links a { color: var(--text-main); text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: color 0.3s; }
+.nav-links a:hover { color: var(--cyan); }
+.nav-cta { background: var(--gradient); padding: 8px 20px; border-radius: 20px; color: #000 !important; }
+
+/* --- Hero Section --- */
+#hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 20px; padding-top: 80px; }
+.promo-pill { display: inline-flex; align-items: center; gap: 10px; padding: 8px 20px; border-radius: 30px; border: 1px solid var(--card-border); background: var(--card-glass); margin-bottom: 30px; font-size: 0.9rem; backdrop-filter: blur(10px); }
+.pulse-dot { width: 8px; height: 8px; background: var(--cyan); border-radius: 50%; box-shadow: 0 0 10px var(--cyan); animation: pulse 1.5s infinite; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(0, 242, 254, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(0, 242, 254, 0); } 100% { box-shadow: 0 0 0 0 rgba(0, 242, 254, 0); } }
+.badge { background: var(--gradient); color: #000; padding: 2px 8px; border-radius: 10px; font-weight: 800; font-size: 0.7rem; letter-spacing: 1px; }
+
+.hero-title { font-size: 5vw; font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
+@media (max-width: 768px) { .hero-title { font-size: 2.5rem; } }
+.hero-subtitle { max-width: 600px; margin: 0 auto 40px; color: var(--text-muted); font-size: 1.1rem; line-height: 1.6; }
+
+.hero-buttons { display: flex; gap: 20px; justify-content: center; }
+.cta-button { padding: 15px 35px; border-radius: 30px; font-weight: 600; text-decoration: none; transition: all 0.3s; position: relative; overflow: hidden; display: inline-block; cursor: none;}
+.cta-button.primary { background: var(--gradient); color: #000; box-shadow: 0 10px 20px rgba(0, 242, 254, 0.2); }
+.cta-button.primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0, 242, 254, 0.4); }
+.cta-button.secondary { background: transparent; color: var(--text-main); border: 1px solid var(--card-border); }
+.cta-button.secondary:hover { background: var(--card-glass); border-color: var(--cyan); }
+
+/* --- Services Bento Grid --- */
+#services { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
+.section-header { text-align: center; margin-bottom: 60px; }
+.section-title { font-size: 3rem; font-weight: 800; margin-bottom: 10px; }
+.section-header p { color: var(--text-muted); font-size: 1.1rem; }
+
+.bento-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+.glass { background: var(--card-glass); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--card-border); border-radius: 24px; }
+.bento-card { padding: 40px; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.4s; position: relative; overflow: hidden; }
+.bento-card:hover { transform: translateY(-10px); border-color: rgba(0, 242, 254, 0.4); }
+
+.card-icon { font-size: 2.5rem; margin-bottom: 20px; }
+.bento-card h3 { font-size: 1.5rem; margin-bottom: 15px; font-weight: 600; }
+.bento-card p { color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; }
+.card-link { color: var(--cyan); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+
+/* Grid specific sizing */
+.bento-card.large { grid-column: span 2; grid-row: span 2; display: flex; flex-direction: column; justify-content: center; }
+.bento-card.large h3 { font-size: 2.2rem; }
+.bento-card.large p { font-size: 1.1rem; max-width: 80%; }
+.bento-card.wide { grid-column: span 2; display: flex; align-items: center; gap: 30px; }
+.bento-card.wide .card-icon { font-size: 4rem; margin-bottom: 0; }
+
+@media (max-width: 900px) {
+    .bento-grid { grid-template-columns: 1fr; }
+    .bento-card.large, .bento-card.wide { grid-column: span 1; grid-row: span 1; flex-direction: column; text-align: left; align-items: flex-start; }
+    .bento-card.large p { max-width: 100%; }
+}
+
+/* --- Scroll Animations --- */
+.reveal { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.5, 0, 0, 1); }
+.reveal.active { opacity: 1; transform: translateY(0); }
+.reveal-stagger { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
+.reveal-stagger.active { opacity: 1; transform: translateY(0); }
+
+/* ========================================= */
+/* NEW ADDITIONS: HOVER, PORTFOLIO, PRICING  */
+/* ========================================= */
+
+/* Hover to reveal service text */
+.hover-reveal .reveal-text {
+    opacity: 0;
+    max-height: 0;
+    margin-top: 0;
+    transition: opacity 0.4s, max-height 0.4s cubic-bezier(0.5, 0, 0, 1), margin-top 0.4s;
+    overflow: hidden;
+}
+
+.hover-reveal:hover .reveal-text {
+    opacity: 1;
+    max-height: 1000px; 
+    margin-top: 10px;
+}
+
+/* Past Projects grid and styling */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.portfolio-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), border-color 0.4s;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(0, 242, 254, 0.4);
+}
+
+.project-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.deep-dive-grid {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+.deep-project-img {
+    height: 300px;
+}
+
+.project-info {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.portfolio-card h4 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.portfolio-card p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1; 
+}
+
+.project-link {
+    color: var(--cyan);
+    text-decoration: none;
+    font-weight: 600;
+    align-self: flex-start;
+}
+
+/* Testimonials Slider (Flows right to left) */
+.testimonial-slider {
+    overflow: hidden;
+    margin-top: 60px;
+    padding: 0;
+    width: 100%;
+}
+
+.testimonial-track {
+    display: flex;
+    animation: slideLeft 30s linear infinite; 
+}
+
+.testimonial-slider:hover .testimonial-track {
+    animation-play-state: paused;
+}
+
+@keyframes slideLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } 
+}
+
+.testimonial-card {
+    flex: 0 0 calc(33.33% - 40px); 
+    width: 33.33%;
+    max-width: 33.33%;
+    padding: 60px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.client-quote {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.client-name {
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Contact Us Section styling */
+.contact-section {
+    max-width: 1000px;
+    margin: 100px auto;
+    padding: 100px 60px;
+    border-radius: 40px;
+}
+
+.contact-details {
+    margin-top: 60px;
+    gap: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.contact-card {
+    padding: 40px;
+    text-align: center;
+}
+
+.contact-card h4 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.contact-card p {
+    color: var(--cyan);
+    font-weight: 600;
+}
+
+/* Pricing layout */
+#pricing-hero {
+    min-height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.pricing-card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1100px;
+    margin: 40px auto 0;
+    padding: 0;
+    padding-bottom: 50px;
+}
+
+.pricing-card {
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    position: relative;
+    transition: transform 0.4s, border-color 0.4s, box-shadow 0.4s;
+}
+
+.pricing-card:hover {
+    transform: scale(1.03);
+    border-color: rgba(0, 242, 254, 0.4);
+    box-shadow: 0 10px 40px rgba(0, 242, 254, 0.1);
+}
+
+.pricing-card h3 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.pricing-card .price {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.pricing-card ul {
+    list-style: none;
+    margin-bottom: 40px;
+    flex-grow: 1;
+    text-align: left; 
+    max-width: 80%;
+    margin: 0 auto 40px;
+}
+
+.pricing-card ul li {
+    margin-bottom: 15px;
+    color: var(--text-muted);
+    position: relative;
+    font-size: 0.95rem;
+}
+
+.pricing-card ul li::before {
+    content: '✓';
+    position: absolute;
+    left: -25px;
+    color: var(--cyan);
+    font-weight: bold;
+}
+
+.featured-card {
+    border-color: rgba(0, 242, 254, 0.3);
+    box-shadow: 0 0 40px rgba(0, 242, 254, 0.1);
+}
+
+.featured-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    background: var(--gradient);
+    color: #000;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    z-index: 10;
+}
+
+.cta-subtitle {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.center-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+}
+
+@media (min-width: 1400px) {
+    .pricing-card-container { max-width: 1200px; gap: 40px; }
+}
+
+@media (max-width: 900px) {
+    .testimonial-card {
+        flex: 0 0 100%;
+        max-width: 100%;
+        width: 100%;
+        padding: 40px;
+    }
+    @keyframes slideLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+
+    .pricing-card-container {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    .contact-section {
+        padding: 60px 20px;
+        margin: 60px 10px;
+    }
+    
+    .deep-dive-grid {
+        grid-template-columns: 1fr;
+    }
+    .deep-project-img {
+        height: 200px;
+    }
+}
+/* ========================================= */
+/* PORTFOLIO PAGE FIXES & NEW LAYOUTS        */
+/* ========================================= */
+
+/* 1. Fix the hidden heading */
+#portfolio-hero {
+    padding-top: 150px; /* Pushes the heading down below the navigation bar */
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Fix grid stretching so cards only take up as much vertical space as they need */
+.portfolio-grid {
+    align-items: start; 
+}
+
+/* 2. Side-by-side Button Group */
+.button-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.btn-small {
+    padding: 10px 15px;
+    font-size: 0.85rem;
+    text-align: center;
+    flex: 1; /* Makes both buttons equal width */
+    border-radius: 12px; /* Slightly squarer for secondary buttons */
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s;
+    cursor: none;
+}
+
+.btn-small.primary {
+    background: var(--gradient);
+    color: #000;
+}
+
+.btn-small.secondary {
+    background: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--card-border);
+}
+
+.btn-small.secondary:hover {
+    background: var(--card-glass);
+    border-color: var(--cyan);
+}
+
+/* 3. Swipeable Image Carousel (For Posts & Clothes) */
+.carousel-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 10px;
+    padding-bottom: 10px; /* Space for scrollbar */
+    scrollbar-width: thin; 
+    scrollbar-color: var(--cyan) var(--bg-dark);
+}
+
+/* Custom scrollbar for Webkit (Chrome/Safari) */
+.carousel-container::-webkit-scrollbar {
+    height: 6px;
+}
+.carousel-container::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+    border-radius: 10px;
+}
+.carousel-container::-webkit-scrollbar-thumb {
+    background: var(--cyan);
+    border-radius: 10px;
+}
+
+.carousel-img {
+    scroll-snap-align: start;
+    flex: 0 0 100%; /* Forces image to take up 100% of the card width */
+    height: 250px;
+    object-fit: contain; /* Prevents cutting off! Keeps the whole image visible */
+    background-color: rgba(0,0,0,0.5); /* Dark background behind image */
+    border-radius: 10px;
+}
+
+/* 4. Vertical Reel Style */
+.reel-img {
+    width: 100%;
+    height: 400px; /* Taller for vertical video format */
+    object-fit: contain; /* Prevents top/bottom from being cut off */
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 10px;
+    display: block;
+}/* Contact Link Styling Fix */
+.contact-link {
+    color: #ffffff !important; /* The !important forces the browser to ignore the default blue */
+    font-weight: 600;
+    text-decoration: none; /* This removes the underline for a cleaner look */
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.contact-link:hover {
+    color: var(--cyan) !important; /* Adds a nice glowing cyan effect when they hover over it */
+    text-shadow: 0 0 10px var(--cyan);
+}
