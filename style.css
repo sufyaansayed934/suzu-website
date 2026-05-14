@@ -24,10 +24,10 @@ body {
     color: var(--text-main);
     overflow-x: hidden;
     position: relative;
-    line-height: 1.7; /* Increased for premium readability */
+    line-height: 1.7; 
 }
 
-img, video { max-width: 100%; height: auto; } /* Mobile overflow prevention */
+img, video { max-width: 100%; height: auto; } 
 
 /* ========================================= */
 /* BACKGROUND & EFFECTS (HARDWARE ACCEL)     */
@@ -42,7 +42,7 @@ img, video { max-width: 100%; height: auto; } /* Mobile overflow prevention */
 .blob {
     position: fixed; border-radius: 50%; filter: blur(120px); z-index: -1;
     animation: float 12s infinite ease-in-out alternate;
-    will-change: transform; /* Hardware acceleration */
+    will-change: transform; 
 }
 .blob-1 { width: 450px; height: 450px; background: rgba(0, 242, 254, 0.12); top: -10%; left: -10%; }
 .blob-2 { width: 550px; height: 550px; background: rgba(79, 172, 254, 0.12); bottom: -20%; right: -10%; animation-delay: -6s; }
@@ -120,7 +120,7 @@ nav { position: fixed; top: 20px; width: 100%; display: flex; justify-content: c
 #hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 0 20px; padding-top: 100px; }
 .promo-pill { display: inline-flex; align-items: center; gap: 12px; padding: 10px 24px; border-radius: 30px; margin-bottom: 35px; font-size: 0.95rem; font-weight: 500; }
 .pulse-dot { width: 8px; height: 8px; background: var(--cyan); border-radius: 50%; box-shadow: 0 0 10px var(--cyan); animation: pulse 1.5s infinite; }
-.badge { background: var(--gradient); color: #000; padding: 4px 10px; border-radius: 12px; font-weight: 800; font-size: 0.7rem; letter-spacing: 1px; }
+.badge { background: transparent; color: var(--text-main); font-weight: 800; font-size: 0.75rem; letter-spacing: 1px; }
 
 .hero-title { font-size: 5vw; font-weight: 800; line-height: 1.1; margin-bottom: 25px; letter-spacing: -2px; }
 .hero-subtitle { max-width: 700px; margin: 0 auto 45px; color: var(--text-muted); font-size: 1.25rem; line-height: 1.7; font-weight: 400;}
@@ -175,10 +175,16 @@ nav { position: fixed; top: 20px; width: 100%; display: flex; justify-content: c
 .project-outcome { font-size: 1.05rem; color: var(--text-main); margin-bottom: 30px; font-weight: 500; flex-grow: 1;}
 .project-outcome strong { color: var(--cyan); }
 
+/* CAROUSELS FOR PORTFOLIO (FIXED) */
+.carousel-container { display: flex; flex-wrap: nowrap !important; overflow-x: hidden; scroll-behavior: smooth; width: 100%; height: 280px; background: #050505; border-bottom: 1px solid var(--card-border); }
+.carousel-img { flex: 0 0 100%; width: 100%; height: 100%; object-fit: contain; padding: 10px; }
+.reel-img { width: 100%; height: 400px; object-fit: contain; background-color: #050505; border-bottom: 1px solid var(--card-border); display: block; }
+
+
 /* ========================================= */
-/* PRICING SECTION                           */
+/* PRICING SECTION (BULLETPROOF BADGE)       */
 /* ========================================= */
-.pricing-card-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 35px; max-width: 1100px; margin: 40px auto 0; }
+.pricing-card-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 35px; max-width: 1100px; margin: 40px auto 0; padding-top: 25px; }
 .pricing-card { padding: 50px 40px; display: flex; flex-direction: column; text-align: center; position: relative; }
 
 .plan-name { font-size: 1.5rem; color: var(--text-muted); margin-bottom: 15px; font-weight: 500;}
@@ -189,15 +195,34 @@ nav { position: fixed; top: 20px; width: 100%; display: flex; justify-content: c
 .pricing-card ul li { margin-bottom: 18px; color: var(--text-muted); position: relative; font-size: 1rem; padding-left: 25px;}
 .pricing-card ul li::before { content: '✓'; position: absolute; left: 0; color: var(--cyan); font-weight: bold; }
 
-.featured-card { border-color: rgba(0, 242, 254, 0.4); box-shadow: 0 0 40px rgba(0, 242, 254, 0.1); transform: scale(1.05); z-index: 2;}
+/* The Pro Agency Card & Badge Fix */
+.featured-card { border-color: rgba(0, 242, 254, 0.4); box-shadow: 0 0 40px rgba(0, 242, 254, 0.1); transform: scale(1.05); z-index: 2; margin-top: 15px;}
 .featured-card:hover { transform: scale(1.05) translateY(-10px); }
-.featured-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); font-size: 0.75rem; letter-spacing: 1.5px; background: var(--gradient); color: #000; padding: 6px 18px; border-radius: 20px; font-weight: 800; }
+
+.featured-badge { 
+    position: absolute; 
+    top: -20px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    font-size: 0.8rem; 
+    letter-spacing: 1.5px; 
+    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%); 
+    color: #000; 
+    padding: 8px 22px; 
+    border-radius: 30px; 
+    font-weight: 800; 
+    z-index: 10; 
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    box-shadow: 0 5px 15px rgba(0, 242, 254, 0.4); 
+}
 
 /* ========================================= */
 /* TESTIMONIALS                              */
 /* ========================================= */
 .testimonial-slider { overflow: hidden; padding: 20px 0; width: 100%; margin-top: 20px; }
-.testimonial-track { display: flex; gap: 30px; animation: slideLeft 35s linear infinite; }
+.testimonial-track { display: flex; gap: 30px; animation: slideLeft 30s linear infinite; }
 .testimonial-slider:hover .testimonial-track { animation-play-state: paused; }
 
 @keyframes slideLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
@@ -250,10 +275,33 @@ nav { position: fixed; top: 20px; width: 100%; display: flex; justify-content: c
 /* ========================================= */
 /* RESPONSIVE DESIGN (FLAWLESS MOBILE)       */
 /* ========================================= */
+
+/* Pricing Scrollable Row on Mobile/Tablet */
 @media (max-width: 1024px) {
-    .pricing-card-container { grid-template-columns: 1fr; max-width: 500px; gap: 40px;}
-    .featured-card { transform: scale(1); }
+    .pricing-card-container { 
+        display: flex; 
+        overflow-x: auto; 
+        scroll-snap-type: x mandatory; 
+        padding-bottom: 30px; 
+        max-width: 100%; 
+        gap: 20px; 
+        padding-top: 35px; 
+        scrollbar-width: thin; 
+        scrollbar-color: var(--cyan) transparent;
+        -webkit-overflow-scrolling: touch;
+    }
+    .pricing-card-container::-webkit-scrollbar { height: 6px; }
+    .pricing-card-container::-webkit-scrollbar-thumb { background: var(--cyan); border-radius: 10px; }
+    
+    .pricing-card { 
+        flex: 0 0 320px; 
+        scroll-snap-align: center; 
+    }
+    
+    /* Remove scale so cards don't cut off when swiping */
+    .featured-card { transform: scale(1); margin-top: 0;}
     .featured-card:hover { transform: translateY(-10px); }
+    
     .footer-container { grid-template-columns: 1fr 1fr; gap: 50px; }
 }
 
@@ -261,23 +309,31 @@ nav { position: fixed; top: 20px; width: 100%; display: flex; justify-content: c
     .nav-links { display: none; }
     .nav-container.glass { padding: 15px 20px; justify-content: center; }
     
-    #hero { padding-top: 140px; }
-    .hero-title { font-size: 3.2rem; }
-    .hero-subtitle { font-size: 1.1rem; padding: 0 10px; }
+    /* Hero Section Fixes */
+    #hero { padding-top: 110px; }
+    .hero-title { font-size: 2.6rem; line-height: 1.15; margin-bottom: 20px; letter-spacing: -1px; }
+    .hero-subtitle { font-size: 1.05rem; padding: 0 10px; margin-bottom: 35px; line-height: 1.6;}
+    .promo-pill { font-size: 0.8rem; padding: 8px 15px; flex-wrap: wrap; justify-content: center; line-height: 1.4;}
+    
     .hero-buttons { flex-direction: column; width: 100%; max-width: 320px; margin: 0 auto; }
     .cta-button { width: 100%; }
     
-    .section-padding { padding: 100px 20px; }
-    .section-title { font-size: 2.6rem; }
+    .section-padding { padding: 90px 20px; }
+    .section-title { font-size: 2.3rem; }
     
-    .about-box { padding: 40px 25px; }
+    .about-box { padding: 35px 20px; }
     .trust-badges { flex-direction: column; }
     
-    .process-card, .bento-card, .portfolio-card { padding: 30px 25px; }
+    .process-card, .bento-card, .portfolio-card { padding: 30px 20px; }
     
-    .testimonial-card { flex: 0 0 320px; padding: 35px 25px; }
+    /* Pricing slightly narrower for phones */
+    .pricing-card { flex: 0 0 290px; padding: 40px 30px;}
     
-    .contact-section { padding: 50px 25px; border-radius: 25px; }
+    /* Faster Testimonials */
+    .testimonial-track { animation: slideLeft 15s linear infinite; }
+    .testimonial-card { flex: 0 0 300px; padding: 30px 25px; }
+    
+    .contact-section { padding: 40px 20px; border-radius: 25px; }
     .contact-number { font-size: 1.4rem; }
     
     .footer-container { grid-template-columns: 1fr; gap: 40px; text-align: center; }
@@ -286,25 +342,4 @@ nav { position: fixed; top: 20px; width: 100%; display: flex; justify-content: c
     
     /* Ensure no horizontal overflow ever happens */
     body, html { overflow-x: hidden; width: 100%; }
-}
-/* ========================================= */
-/* PREMIUM AUTO-CAROUSEL FIXES               */
-/* ========================================= */
-.carousel-container {
-    display: flex;
-    flex-wrap: nowrap !important; /* Forces images into a single horizontal row */
-    overflow-x: hidden; /* Hides the scrollbar */
-    scroll-behavior: smooth; /* Makes the auto-scroll glide beautifully */
-    width: 100%;
-    height: 280px; /* Matches the exact height of your other project images */
-    background: #050505; /* Deep cinematic background behind images */
-    border-bottom: 1px solid var(--card-border);
-}
-
-.carousel-img {
-    flex: 0 0 100%; /* Forces every image to be exactly 100% of the card width */
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Shows the full image without cropping or weird stretching */
-    padding: 10px; /* Adds a little breathing room around the designs */
 }
